@@ -44,8 +44,7 @@ public class CreateAccount : MonoBehaviour {
     }
     void CreateNewUser(string userName, string password, string email)
     {
-        var user = new ParseUser()
-        {
+        var user = new ParseUser(){
             Username = userName,
             Password = password,
             Email = email

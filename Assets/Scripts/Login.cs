@@ -24,18 +24,19 @@ public class Login : MonoBehaviour {
 	void OnGUI () {
 		
 		if (ParseUser.CurrentUser != null)
-		{
+        {
 			// Once user has been authenticated do stuff
 			Application.LoadLevel("MenuInicial");
 		}
-		else
-		{
+        else
+        {
 			// show the signup or login screen
 			ShowLoginGUI();
 		}
 	}
 	
-	void ShowLoginGUI(){
+	void ShowLoginGUI()
+    {
 		//Cria um label 'Login'
 		GUI.Label (new Rect (width / 2 - 500, height / 2 - 150, 100, 60), "Login:");
         //Cria um campo para inserir o Login
@@ -46,7 +47,7 @@ public class Login : MonoBehaviour {
         password = GUI.PasswordField(new Rect(width / 2 - 400, height / 2 - 60, 800, 60), password, "*"[0], 25);
 
         if (GUI.Button(new Rect(width / 2 - 400, height / 2 + 20, 380, 50), "Entrar"))
-		{
+        {
             authenticateUser(userName, password);
 		}
 
@@ -57,17 +58,15 @@ public class Login : MonoBehaviour {
 		
 	}
 	
-	void authenticateUser(string username, string password){
+	void authenticateUser(string username, string password)
+    {
 		
 		ParseUser.LogInAsync(username, password).ContinueWith(t =>
 		                                                      {
-			if (t.IsFaulted || t.IsCanceled)
-			{
+			if (t.IsFaulted || t.IsCanceled){
 				// The login failed. Check t.Exception to see why.
 				isAuthenticated = false;
-			}
-			else
-			{
+			} else {
 				// Login was successful.
 				isAuthenticated = true;
 			}

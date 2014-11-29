@@ -20,7 +20,7 @@ public class GameMenu : MonoBehaviour {
     {
         if (GUI.Button(new Rect(width / 2 - 100, height / 2 -60, 200, 50), "Jogar"))
         {
-           // Application.LoadLevel("")
+            Application.LoadLevel("Game");
         }
         if (GUI.Button(new Rect(width / 2 - 100, height / 2, 200, 50), "Recordes"))
         {
