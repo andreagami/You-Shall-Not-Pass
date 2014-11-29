@@ -46,20 +46,27 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Pixel Map Terrain\Scripts\PixelMapTerrain.cs" />
+     <Compile Include="Assets\External Assets\Pixel Map Terrain\Scripts\PixelMapTerrain.cs" />
      <Compile Include="Assets\Scripts\CreateAccount.cs" />
+     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
+     <Compile Include="Assets\Scripts\EnemyLifeBar.cs" />
      <Compile Include="Assets\Scripts\GameMenu.cs" />
+     <Compile Include="Assets\Scripts\GoblinWave.cs" />
      <Compile Include="Assets\Scripts\Login.cs" />
+     <Compile Include="Assets\Scripts\ScreenMovement.cs" />
+     <Compile Include="Assets\Scripts\SkeletonWave.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
+     <None Include="Assets\External Assets\Pixel Map Terrain\README.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
+     <None Include="Assets\External Assets\SkeletonData\animations.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Only.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
-     <None Include="Assets\WatchTower\ReadMe.txt" />
+     <None Include="Assets\External Assets\WatchTower\ReadMe.txt" />
  <Reference Include="Parse.Unity">
  <HintPath>I:/Projeto/You-Shall-Not-Pass/trunk/Assets/Other Assets/Parse/Parse.Unity.dll</HintPath>
  </Reference>
