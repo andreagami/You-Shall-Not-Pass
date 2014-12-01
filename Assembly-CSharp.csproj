@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Login.cs" />
      <Compile Include="Assets\Scripts\ScreenMovement.cs" />
      <Compile Include="Assets\Scripts\SkeletonWave.cs" />
+     <Compile Include="Assets\Scripts\TowerLifeBar.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
