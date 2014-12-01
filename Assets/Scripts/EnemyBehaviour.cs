@@ -7,12 +7,13 @@ public class EnemyBehaviour : MonoBehaviour {
     private Vector3 distance;
     private Quaternion enemyRotation;
     private GoblinWave goblinKill;
+    private TowerLifeBar towerLife;
     private float bound;
     private float rotation;
     private float rotationAux;
     public int speed;
-    public int life;
-    public int lifeIni;
+    public float currentLife;
+    public float life;
 
     // Use this for initialization
     void Start()
@@ -20,16 +21,18 @@ public class EnemyBehaviour : MonoBehaviour {
         rotation = transform.rotation.eulerAngles.y;
         speed = 10;
         life = 30;
+        currentLife = 30;
+        towerLife = (TowerLifeBar) GameObject.Find("TowerLife").GetComponent("TowerLifeBar");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (life <= 0)
+        if (currentLife <= 0)
         {
-            animation.Play("death");
-            goblinKill.enemiesAlive--;
-            Wait();
+            //animation.Play("death");
+            //goblinKill.enemiesAlive--;
+            //Wait();
             Destroy(gameObject);
         }
         if (path.childCount > 0)
@@ -41,6 +44,7 @@ public class EnemyBehaviour : MonoBehaviour {
                 path = path.GetChild(0);
                 if(path.childCount <= 0)
                 {
+                    towerLife.currentLife -= this.currentLife;
                     Destroy(gameObject);
                 }
             }
@@ -64,6 +68,6 @@ public class EnemyBehaviour : MonoBehaviour {
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(10);
     }
 }

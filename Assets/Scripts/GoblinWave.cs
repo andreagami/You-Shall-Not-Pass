@@ -44,8 +44,8 @@ public class GoblinWave : MonoBehaviour
                 {
                     enemyAux = Instantiate(enemy, transform.position, transform.rotation);
                     enemyBehaviour.path = enemyPath;
+                    enemyBehaviour.currentLife = enemyLife;
                     enemyBehaviour.life = enemyLife;
-                    enemyBehaviour.lifeIni = enemyLife;
                     enemyBehaviour.speed = enemySpeed;
                     generatedEnemies++;
                 }
