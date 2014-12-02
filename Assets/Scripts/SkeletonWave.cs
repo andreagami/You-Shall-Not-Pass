@@ -29,6 +29,7 @@ public class SkeletonWave : MonoBehaviour {
         enemyLife = 20;
         enemySpeed = 5;
         newWave = true;
+        enemyBehaviour = new EnemyBehaviour();
     }
 
     // Update is called once per frame

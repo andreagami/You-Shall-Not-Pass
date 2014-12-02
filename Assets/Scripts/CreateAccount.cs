@@ -51,6 +51,6 @@ public class CreateAccount : MonoBehaviour {
         };
 
         user.SignUpAsync();
-        Application.LoadLevel("MenuInicial");
+        Application.LoadLevel("GameMenu");
     }
 }

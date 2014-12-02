@@ -10,3 +10,14 @@ I:\Projeto\You-Shall-Not-Pass\trunk\Temp\bin\Debug\ICSharpCode.NRefactory.dll
 I:\Projeto\You-Shall-Not-Pass\trunk\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
 I:\Projeto\You-Shall-Not-Pass\trunk\obj\Debug\Assembly-CSharp.dll
 I:\Projeto\You-Shall-Not-Pass\trunk\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Anderson\Documents\You Shall Not Pass\trunk\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\Anderson\Documents\You Shall Not Pass\trunk\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Anderson\Documents\You Shall Not Pass\trunk\Temp\bin\Debug\Parse.Unity.dll
+C:\Users\Anderson\Documents\You Shall Not Pass\trunk\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Anderson\Documents\You Shall Not Pass\trunk\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Anderson\Documents\You Shall Not Pass\trunk\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Anderson\Documents\You Shall Not Pass\trunk\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Anderson\Documents\You Shall Not Pass\trunk\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\Anderson\Documents\You Shall Not Pass\trunk\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Anderson\Documents\You Shall Not Pass\trunk\obj\Debug\Assembly-CSharp.dll
+C:\Users\Anderson\Documents\You Shall Not Pass\trunk\obj\Debug\Assembly-CSharp.pdb

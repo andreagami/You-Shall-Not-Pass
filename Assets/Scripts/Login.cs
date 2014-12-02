@@ -69,6 +69,7 @@ public class Login : MonoBehaviour {
 			} else {
 				// Login was successful.
 				isAuthenticated = true;
+                Application.LoadLevel("GameMenu");
 			}
 		});
 	}

@@ -28,7 +28,8 @@ public class GoblinWave : MonoBehaviour
         challengeMod = 0;
         enemyLife = 30;
         enemySpeed = 5;
-        newWave = true; 		
+        newWave = true;
+        enemyBehaviour = new EnemyBehaviour();
     }
 
     // Update is called once per frame
