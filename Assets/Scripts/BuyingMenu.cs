@@ -3,14 +3,17 @@ using System.Collections;
 
 public class BuyingMenu : MonoBehaviour {
 
+    private Rect menu;
+    private Rect buttons;
+    private Transform towerPosition;
+    private Quaternion rotation;
     public Camera mainCamera;
-
-    Rect menu, buttons;
-    public GameObject towerOne, towerTwo, towerAux;
-
-    public int text, money, score;
-    
-    Transform towerPosition;
+    public GameObject towerOne;
+    public GameObject towerTwo;
+    public GameObject towerAux;
+    public int text;
+    public int money;
+    public int score;    
 
     //DestroyTorre AuxDestroiTorre;
 
@@ -19,6 +22,9 @@ public class BuyingMenu : MonoBehaviour {
         text = 0;
         money = 100;
         score = 0;
+        rotation.x = 0;
+        rotation.y = 0;
+        rotation.z = 0;
 	}
 	
 	// Update is called once per frame
@@ -82,7 +88,7 @@ public class BuyingMenu : MonoBehaviour {
         {
             if (money >= 55)
             {
-                towerAux = (GameObject)Instantiate(towerOne, transform.position, transform.rotation);
+                towerAux = (GameObject)Instantiate(towerOne, transform.position, rotation);
                 text = 0;
             }
         }
@@ -99,7 +105,7 @@ public class BuyingMenu : MonoBehaviour {
         {
             if (money >= 45)
             {
-                towerAux = (GameObject)Instantiate(towerTwo, transform.position, transform.rotation);
+                towerAux = (GameObject)Instantiate(towerTwo, transform.position, rotation);
                 text = 0;
             }
 
