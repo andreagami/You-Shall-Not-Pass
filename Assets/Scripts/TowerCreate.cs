@@ -21,7 +21,7 @@ public class TowerCreate : MonoBehaviour {
     {
         MainCamera = Camera.main;
         create = false;
-        buyingMenu = (BuyingMenu)GameObject.Find("Player").GetComponent("MenuCompra");
+        buyingMenu = (BuyingMenu)GameObject.Find("Player").GetComponent("BuyingMenu");
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class TowerCreate : MonoBehaviour {
 
 			    if(Input.touchCount> 0 || Input.GetMouseButtonDown(0)){
 				    towerAux = (GameObject)Instantiate(tower,transform.position,Quaternion.identity);
-                    buyingMenu = (BuyingMenu)GameObject.Find("Player").GetComponent("MenuCompra");
+                    buyingMenu = (BuyingMenu)GameObject.Find("Player").GetComponent("BuyingMenu");
                     buyingMenu.money -= price;
 				    towerAux.tag = text;
 				    Destroy(gameObject);
