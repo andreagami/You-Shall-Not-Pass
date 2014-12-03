@@ -7,6 +7,7 @@ public class ScreenMovement : MonoBehaviour {
 	Vector3 current_position = Vector3.zero;
 	Vector3 camera_position = Vector3.zero;
 	float z = 0.0f;
+
 	void Start () {
 	
 	}

@@ -51,6 +51,7 @@ public class TowerCreate : MonoBehaviour {
 			        }
 			    }
 		    }
+
 		    if(create){
 			    child.renderer.material.color = Color.blue;
 
