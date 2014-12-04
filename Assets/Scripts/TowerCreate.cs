@@ -31,8 +31,6 @@ public class TowerCreate : MonoBehaviour {
 	    RaycastHit collision;
 
 	    child = transform.GetChild(0);
-	    //child.renderer.material.color = Color.red;
-
 	    if (Physics.Raycast(radius, out collision, Mathf.Infinity)){
             
             SetTransform(collision.point.x, 9+transform.lossyScale.y/2, collision.point.z);
@@ -52,14 +50,13 @@ public class TowerCreate : MonoBehaviour {
 		    }
 
 		    if(create){
-			    //child.renderer.material.color = Color.blue;
                 lastClickTime = 0;
                 catchTime = 25;
 			    if(Input.GetMouseButtonDown(0)){
                     if(Time.time-lastClickTime<catchTime)
                     {
                         tower = this.gameObject;
-                        towerAux = (GameObject)Instantiate(tower, transform.position, Quaternion.identity);
+                        towerAux = (GameObject)Instantiate(tower, transform.position, transform.rotation);
                         buyingMenu = (BuyingMenu)GameObject.Find("Player").GetComponent("BuyingMenu");
                         buyingMenu.money -= price;
                         towerAux.tag = text;

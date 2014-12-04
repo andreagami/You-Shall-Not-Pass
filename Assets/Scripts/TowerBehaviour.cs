@@ -6,18 +6,13 @@ public class TowerBehaviour : MonoBehaviour
     int range;
     int attackPower;
     float attackSpeed;
-
     float time;
     float distance;
-
     GameObject[] enemies;
     GameObject targetedEnemies;
     GameObject enemy;
-
     bool findEnemy;
-
     Transform target;
-
     EnemyBehaviour enemyBehaviour;
 
     void Start()
@@ -48,10 +43,10 @@ public class TowerBehaviour : MonoBehaviour
         {
             target = transform.GetChild(1);
 
-            Quaternion Rotacao;
-            Rotacao = Quaternion.LookRotation(transform.position - enemy.transform.position);
+            Quaternion direction;
+            direction = Quaternion.LookRotation( enemy.transform.position -transform.position);
 
-            target.localEulerAngles = new Vector3(0, Rotacao.eulerAngles.y, 0);
+            target.localEulerAngles = new Vector3(target.rotation.x, direction.eulerAngles.y, target.rotation.z);
 
             if (time > attackSpeed)
             {

@@ -53,7 +53,6 @@ public class TowerCreator : MonoBehaviour {
             }
             if(canCreate)
             {
-                child.renderer.material.color = Color.blue;
                 lastClickTime = 0;
                 catchTime = 25;
                 if (Input.GetMouseButtonDown(0))
@@ -61,10 +60,9 @@ public class TowerCreator : MonoBehaviour {
                     if (Time.time - lastClickTime < catchTime)
                     {
                         Vector3 instancePos = new Vector3(transform.position.x, 16.0f, transform.position.z);
-                        towerAux = (GameObject)Instantiate(tower, transform.position, Quaternion.identity);
+                        towerAux = (GameObject)Instantiate(tower, transform.position, transform.rotation);
                         priceAux = (BuyingMenu)GameObject.Find("Player").GetComponent("BuyingMenu");
                         priceAux.money -= price;
-                        //towerAux.tag = tag;
                         Destroy(gameObject);
                     }
                     
