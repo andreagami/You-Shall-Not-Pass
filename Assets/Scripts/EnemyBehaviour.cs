@@ -20,8 +20,8 @@ public class EnemyBehaviour : MonoBehaviour {
     {
         rotation = transform.rotation.eulerAngles.y;
         speed = 10;
-        life = 30;
-        currentLife = 30;
+        life = 300;
+        currentLife = 300;
         towerLife = (TowerLifeBar) GameObject.Find("TowerLife").GetComponent("TowerLifeBar");
     }
 

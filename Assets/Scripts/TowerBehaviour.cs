@@ -42,20 +42,17 @@ public class TowerBehaviour : MonoBehaviour
         if (findEnemy)
         {
             target = transform.GetChild(1);
-
             Quaternion direction;
             direction = Quaternion.LookRotation( enemy.transform.position -transform.position);
-
             target.localEulerAngles = new Vector3(target.rotation.x, direction.eulerAngles.y, target.rotation.z);
 
             if (time > attackSpeed)
             {
                 enemyBehaviour = (EnemyBehaviour)enemy.GetComponent("EnemyBehaviour");
                 enemyBehaviour.currentLife -= attackPower;
-
                 Transform cannon;
-                cannon = target.GetChild(1);
-                cannon.Rotate(0, 0, 360 * Time.deltaTime);
+                cannon = target.GetChild(0);
+                cannon.Rotate(Vector3.right * Time.deltaTime);
                 time = 0;
             }
         }
