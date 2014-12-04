@@ -16,8 +16,7 @@ public class TowerCreator : MonoBehaviour {
 
 	void Start () {
         mainCamera = Camera.main;
-        canCreate = false;
-        //Preco = 45;
+        canCreate = false;        
         priceAux = (BuyingMenu) GameObject.Find("Player").GetComponent("BuyingMenu");
 	}
 	
@@ -27,7 +26,7 @@ public class TowerCreator : MonoBehaviour {
         Ray radius  = mainCamera.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit collision ;
-        child = transform.GetChild(0);
+        child = transform.GetChild(1);
         child.renderer.material.color = Color.red;
 
         if (Physics.Raycast(radius,out collision,Mathf.Infinity))
@@ -43,7 +42,7 @@ public class TowerCreator : MonoBehaviour {
                 if (Physics.Raycast(childObj.position, -Vector3.up, out collision, Mathf.Infinity))
                 {
     
-                    if (collision.point.y<10.5f || collision.point.y>10.52f)
+                    if (collision.point.y>-15.9f || collision.point.y<-16.1f)
                     { 
                         canCreate=false;
                         break;
@@ -61,10 +60,11 @@ public class TowerCreator : MonoBehaviour {
                 {
                     if (Time.time - lastClickTime < catchTime)
                     {
+                        Vector3 instancePos = new Vector3(transform.position.x, 16.0f, transform.position.z);
                         towerAux = (GameObject)Instantiate(tower, transform.position, Quaternion.identity);
                         priceAux = (BuyingMenu)GameObject.Find("Player").GetComponent("BuyingMenu");
                         priceAux.money -= price;
-                        towerAux.tag = tag;
+                        //towerAux.tag = tag;
                         Destroy(gameObject);
                     }
                     

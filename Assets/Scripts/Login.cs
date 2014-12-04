@@ -26,7 +26,7 @@ public class Login : MonoBehaviour {
 		if (ParseUser.CurrentUser != null)
         {
 			// Once user has been authenticated do stuff
-			Application.LoadLevel("MenuInicial");
+            Application.LoadLevel("GameMenu");
 		}
         else
         {
@@ -69,7 +69,6 @@ public class Login : MonoBehaviour {
 			} else {
 				// Login was successful.
 				isAuthenticated = true;
-                Application.LoadLevel("GameMenu");
 			}
 		});
 	}

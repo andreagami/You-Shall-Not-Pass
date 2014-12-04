@@ -11,7 +11,7 @@ public class TowerBehaviour : MonoBehaviour
     float distance;
 
     GameObject[] enemies;
-    GameObject targetedEnemys;
+    GameObject targetedEnemies;
     GameObject enemy;
 
     bool findEnemy;
@@ -31,7 +31,7 @@ public class TowerBehaviour : MonoBehaviour
     {
         time += Time.deltaTime;
         findEnemy = false;
-        enemies = GameObject.FindGameObjectsWithTag("Skeleton");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject targetedEnemy in enemies)
         {
@@ -46,7 +46,7 @@ public class TowerBehaviour : MonoBehaviour
 
         if (findEnemy)
         {
-            target = transform.GetChild(0);
+            target = transform.GetChild(1);
 
             Quaternion Rotacao;
             Rotacao = Quaternion.LookRotation(transform.position - enemy.transform.position);
@@ -59,7 +59,7 @@ public class TowerBehaviour : MonoBehaviour
                 enemyBehaviour.currentLife -= attackPower;
 
                 Transform cannon;
-                cannon = target.GetChild(0);
+                cannon = target.GetChild(1);
                 cannon.Rotate(0, 0, 360 * Time.deltaTime);
                 time = 0;
             }
