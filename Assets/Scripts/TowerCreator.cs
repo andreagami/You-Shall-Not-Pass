@@ -11,8 +11,8 @@ public class TowerCreator : MonoBehaviour {
     public Transform child;
     public int price;
     public BuyingMenu priceAux;
-    private float lastClickTime;
-    private float catchTime;
+    public float lastClickTime;
+    public float catchTime;
 
 	void Start () {
         mainCamera = Camera.main;
@@ -31,7 +31,7 @@ public class TowerCreator : MonoBehaviour {
 
         if (Physics.Raycast(radius,out collision,Mathf.Infinity))
         {
-            transform.position = new Vector3(collision.point.x, 10.51f+transform.lossyScale.y/2 ,collision.point.z);
+            transform.position = new Vector3(collision.point.x, 9f+transform.lossyScale.y/2 ,collision.point.z);
             canCreate=true;
             int childCount = transform.childCount;
             int i;
