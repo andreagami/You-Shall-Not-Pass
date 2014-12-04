@@ -26,7 +26,6 @@ public class TowerLifeBar : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
         color.x = 1 - (currentLife / life);
         color.y = currentLife / life;
         transform.renderer.material.color = color;

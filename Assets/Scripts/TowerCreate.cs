@@ -3,23 +3,22 @@ using System.Collections;
 
 public class TowerCreate : MonoBehaviour {
 
-    public Camera MainCamera;
-
+    private Transform child;
+    public Camera mainCamera;
+    public GameObject tower;
+    public GameObject towerAux;
+    public BuyingMenu buyingMenu;
     public int price;
     public string text;
     public bool create;
-
-    public GameObject tower, towerAux;
-    Transform child;
-    Touch touch;
-    Vector3 touchLoc;
-
-    public BuyingMenu buyingMenu;
+    private float lastClickTime;
+    float catchTime;
+    
 
     // Use this for initialization
     void Start()
     {
-        MainCamera = Camera.main;
+        mainCamera = Camera.main;
         create = false;
         buyingMenu = (BuyingMenu)GameObject.Find("Player").GetComponent("BuyingMenu");
     }
@@ -28,24 +27,24 @@ public class TowerCreate : MonoBehaviour {
     void Update()
     {
         buyingMenu.text = 0;
-	    Ray radius = MainCamera.ScreenPointToRay(Input.mousePosition);
+	    Ray radius = mainCamera.ScreenPointToRay(Input.mousePosition);
 	    RaycastHit collision;
 
 	    child = transform.GetChild(0);
-	    child.renderer.material.color = Color.red;
+	    //child.renderer.material.color = Color.red;
 
 	    if (Physics.Raycast(radius, out collision, Mathf.Infinity)){
             
-            SetTransform(collision.point.x, 8+transform.lossyScale.y/2, collision.point.z);
+            SetTransform(collision.point.x, 9+transform.lossyScale.y/2, collision.point.z);
 
 		    create=true;
 		    int qntFilhos  = transform.childCount;
 		    int i;
 
 		    for (i=0;i<qntFilhos;i++){
-			    Transform filho = transform.GetChild(i);
-			    if (Physics.Raycast(filho.position,-Vector3.up, out collision,Mathf.Infinity)){
-				    if (collision.point.y<7.9 || collision.point.y>8.1){ 
+			    Transform currentChild = transform.GetChild(i);
+			    if (Physics.Raycast(currentChild.position,-Vector3.up, out collision,Mathf.Infinity)){
+				    if (collision.point.y<8.9f || collision.point.y>9.1f){ 
 				        create=false;
 			            break;
 			        }
@@ -53,14 +52,19 @@ public class TowerCreate : MonoBehaviour {
 		    }
 
 		    if(create){
-			    child.renderer.material.color = Color.blue;
-
-			    if(Input.touchCount> 0 || Input.GetMouseButtonDown(0)){
-				    towerAux = (GameObject)Instantiate(tower,transform.position,Quaternion.identity);
-                    buyingMenu = (BuyingMenu)GameObject.Find("Player").GetComponent("BuyingMenu");
-                    buyingMenu.money -= price;
-				    towerAux.tag = text;
-				    Destroy(gameObject);
+			    //child.renderer.material.color = Color.blue;
+                lastClickTime = 0;
+                catchTime = 25;
+			    if(Input.GetMouseButtonDown(0)){
+                    if(Time.time-lastClickTime<catchTime)
+                    {
+                        tower = this.gameObject;
+                        towerAux = (GameObject)Instantiate(tower, transform.position, Quaternion.identity);
+                        buyingMenu = (BuyingMenu)GameObject.Find("Player").GetComponent("BuyingMenu");
+                        buyingMenu.money -= price;
+                        towerAux.tag = text;
+                        Destroy(gameObject);
+                    }
 			    }
 		    }
 	    }
