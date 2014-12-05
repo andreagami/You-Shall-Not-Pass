@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Parse;
 
 public class GameMenu : MonoBehaviour {
   
@@ -28,6 +29,7 @@ public class GameMenu : MonoBehaviour {
         }
         if (GUI.Button(new Rect(width / 2 - 100, height / 2 + 60, 200, 50), "Deslogar"))
         {
+            ParseUser.LogOut();
             Application.LoadLevel("Login");
         }
     }

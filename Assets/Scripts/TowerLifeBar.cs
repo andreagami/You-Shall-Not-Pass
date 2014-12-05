@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Parse;
 
 public class TowerLifeBar : MonoBehaviour {
 
+    private BuyingMenu buyingMenuAux;
     private GameObject player;
     private Vector4 color;
     public float life;
@@ -21,6 +23,7 @@ public class TowerLifeBar : MonoBehaviour {
         currentLife = 300;
 
         barScale = transform.localScale.x;
+        buyingMenuAux = (BuyingMenu)GameObject.Find("Player").GetComponent("BuyingMenu");
     }
 
     // Update is called once per frame
@@ -33,7 +36,16 @@ public class TowerLifeBar : MonoBehaviour {
 
         if (currentLife <= 0)
         {
+            SaveHighScore();
             Application.LoadLevel("GameOver");
         }
+    }
+
+    void SaveHighScore()
+    {
+        ParseObject gameScore = new ParseObject("HighScore");
+        gameScore["score"] = buyingMenuAux.score;
+        gameScore["playerName"] = ParseUser.CurrentUser.Username;
+        gameScore.SaveAsync();
     }
 }

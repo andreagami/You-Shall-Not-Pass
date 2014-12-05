@@ -13,9 +13,8 @@ public class BuyingMenu : MonoBehaviour {
     public GameObject towerAux;
     public int text;
     public int money;
-    public int score;    
-
-    //DestroyTorre AuxDestroiTorre;
+    public int score;
+    private bool canCreate;
 
 	// Use this for initialization
 	void Start () {
@@ -25,36 +24,53 @@ public class BuyingMenu : MonoBehaviour {
         rotation.x = 0;
         rotation.y = 0;
         rotation.z = 0;
+        canCreate = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetMouseButtonDown(1)){
-		    Ray radius = mainCamera.ScreenPointToRay(Input.mousePosition);
-		    RaycastHit collision;
-		    text=1; 
-		    if (Physics.Raycast(radius, out collision, Mathf.Infinity)){
-			    if (collision.transform.tag=="Tower 1"){
-				    text=2;
-				    towerPosition = collision.transform;
-			    }
-			    if (collision.transform.tag=="Tower 2"){
-				    text=3;
-				    towerPosition = collision.transform;
-			    }
-			
-			    //Destroy(transform);
-		    }
-		    menu.x = Input.mousePosition.x;
-		    menu.y = -(Input.mousePosition.y-Screen.height);
-		    menu.height = Screen.height/5;
-		    menu.width = Screen.width/5;
-		    if ((menu.x+menu.width)>Screen.width){
-			    menu.x -= (menu.x+menu.width-Screen.width);
-		    }
-		    if ((menu.y+menu.height)>Screen.height){
-			    menu.y -= (menu.y+menu.height-Screen.height);
-		    }
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (canCreate)
+            {
+                canCreate = false;
+
+                Ray radius = mainCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit collision;
+                text = 1;
+                if (Physics.Raycast(radius, out collision, Mathf.Infinity))
+                {
+                    if (collision.transform.tag == "Tower 1")
+                    {
+                        text = 2;
+                        towerPosition = collision.transform;
+                    }
+                    if (collision.transform.tag == "Tower 2")
+                    {
+                        text = 3;
+                        towerPosition = collision.transform;
+                    }
+
+                    //Destroy(transform);
+                }
+                menu.x = Input.mousePosition.x;
+                menu.y = -(Input.mousePosition.y - Screen.height);
+                menu.height = Screen.height / 5;
+                menu.width = Screen.width / 5;
+                if ((menu.x + menu.width) > Screen.width)
+                {
+                    menu.x -= (menu.x + menu.width - Screen.width);
+                }
+                if ((menu.y + menu.height) > Screen.height)
+                {
+                    menu.y -= (menu.y + menu.height - Screen.height);
+                }
+            }
+            else
+            {
+                canCreate = true;
+                text = 0;
+            }
 	    }
 	}
 
@@ -89,6 +105,7 @@ public class BuyingMenu : MonoBehaviour {
             if (money >= 55)
             {
                 towerAux = (GameObject)Instantiate(towerOne, transform.position, rotation);
+                canCreate = true;
                 text = 0;
             }
         }
@@ -106,9 +123,11 @@ public class BuyingMenu : MonoBehaviour {
             if (money >= 45)
             {
                 towerAux = (GameObject)Instantiate(towerTwo, transform.position, rotation);
+                canCreate = true;
                 text = 0;
             }
 
         }
     }
+    
 }
