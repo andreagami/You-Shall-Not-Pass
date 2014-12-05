@@ -34,6 +34,9 @@ public class EnemyLifeBar : MonoBehaviour {
             transform.LookAt(player.transform);
             transform.renderer.material.color = color;
         }
+
+        currentLife = enemy.currentLife;
+        
         color.x = 1 - (currentLife / life);
         color.y = currentLife / life;
         transform.localScale = new Vector3(barScale * (currentLife / life), 0.09f, 0.09f); 

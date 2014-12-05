@@ -8,13 +8,17 @@ public class EnemyBehaviour : MonoBehaviour {
     private Quaternion enemyRotation;
     private GoblinWave goblinKill;
     private TowerLifeBar towerLife;
+    private BuyingMenu buyMenuAux;
+    public Transform enemyLifeBar;
     private float bound;
     private float rotation;
     private float rotationAux;
     public int speed;
     public float currentLife;
     public float life;
-    //test
+    public float lbXsize;
+
+
     // Use this for initialization
     void Start()
     {
@@ -22,7 +26,8 @@ public class EnemyBehaviour : MonoBehaviour {
         speed = 10;
         life = 30;
         currentLife = 30;
-        towerLife = (TowerLifeBar) GameObject.Find("TowerLife").GetComponent("TowerLifeBar");
+        towerLife = (TowerLifeBar)GameObject.Find("TowerLife").GetComponent("TowerLifeBar");
+        buyMenuAux = (BuyingMenu)GameObject.Find("Player").GetComponent("BuyingMenu");
     }
 
     // Update is called once per frame
@@ -33,6 +38,8 @@ public class EnemyBehaviour : MonoBehaviour {
             //animation.Play("death");
             //goblinKill.enemiesAlive--;
             //Wait();
+            buyMenuAux.money += 25;
+            buyMenuAux.score += 1;
             Destroy(gameObject);
         }
         if (path.childCount > 0)
@@ -44,7 +51,7 @@ public class EnemyBehaviour : MonoBehaviour {
                 path = path.GetChild(0);
                 if(path.childCount <= 0)
                 {
-                    towerLife.currentLife -= this.currentLife;
+                    towerLife.currentLife -= this.currentLife;                    
                     Destroy(gameObject);
                 }
             }
@@ -69,5 +76,5 @@ public class EnemyBehaviour : MonoBehaviour {
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(10);
-    }
+    }    
 }

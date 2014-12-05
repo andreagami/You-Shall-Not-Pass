@@ -14,13 +14,14 @@ public class TowerBehaviour : MonoBehaviour
     GameObject enemy;
     Transform towerBase;
     Transform cannon;
+    Transform enemyLifeBar;
     EnemyBehaviour enemyBehaviour;
-    Quaternion direction;
+    Quaternion direction;    
 
     void Start()
     {
         range = 30;
-        attackPower = 10;
+        attackPower = 5;
         attackSpeed = 1;
     }
 
