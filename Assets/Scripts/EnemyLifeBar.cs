@@ -20,7 +20,6 @@ public class EnemyLifeBar : MonoBehaviour {
         enemy = (EnemyBehaviour)transform.parent.GetComponent("EnemyBehaviour");
         life = enemy.life;
         currentLife = enemy.currentLife;
-
         barScale = transform.localScale.x;
 	}
 	
@@ -37,7 +36,6 @@ public class EnemyLifeBar : MonoBehaviour {
         }
         color.x = 1 - (currentLife / life);
         color.y = currentLife / life;
-        transform.localScale = new Vector3(barScale * (currentLife / life), 0.09f, 0.09f);
-        
+        transform.localScale = new Vector3(barScale * (currentLife / life), 0.09f, 0.09f); 
 	}
 }

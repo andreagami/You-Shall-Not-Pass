@@ -14,7 +14,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public int speed;
     public float currentLife;
     public float life;
-
+    //test
     // Use this for initialization
     void Start()
     {
