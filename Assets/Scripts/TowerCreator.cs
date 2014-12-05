@@ -27,8 +27,6 @@ public class TowerCreator : MonoBehaviour {
 
         RaycastHit collision ;
         child = transform.GetChild(1);
-        child.renderer.material.color = Color.red;
-
         if (Physics.Raycast(radius,out collision,Mathf.Infinity))
         {
             transform.position = new Vector3(collision.point.x, 9f+transform.lossyScale.y/2 ,collision.point.z);
