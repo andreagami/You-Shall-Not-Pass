@@ -8,12 +8,14 @@ public class TowerBehaviour : MonoBehaviour
     float attackSpeed;
     float time;
     float distance;
+    bool findEnemy;
     GameObject[] enemies;
     GameObject targetedEnemies;
     GameObject enemy;
-    bool findEnemy;
-    Transform target;
+    Transform towerBase;
+    Transform cannon;
     EnemyBehaviour enemyBehaviour;
+    Quaternion direction;
 
     void Start()
     {
@@ -41,18 +43,16 @@ public class TowerBehaviour : MonoBehaviour
 
         if (findEnemy)
         {
-            target = transform.GetChild(0);
-            Quaternion direction;
+            towerBase = transform.GetChild(0);
+            cannon = towerBase.GetChild(1);
             direction = Quaternion.LookRotation(transform.position - enemy.transform.position);
-            target.localEulerAngles = new Vector3(target.rotation.x, direction.eulerAngles.y - 180, target.rotation.z);
+            cannon.localEulerAngles = new Vector3(towerBase.rotation.x, direction.eulerAngles.y - 180, towerBase.rotation.z);
 
             if (time > attackSpeed)
             {
                 enemyBehaviour = (EnemyBehaviour)enemy.GetComponent("EnemyBehaviour");
                 enemyBehaviour.currentLife -= attackPower;
-                Transform cannon;
-                cannon = target.GetChild(1);
-                transform.Rotate(Vector3.right * Time.deltaTime);
+                cannon.transform.Rotate(Vector3.right * Time.deltaTime);
                 time = 0;
             }
         }
