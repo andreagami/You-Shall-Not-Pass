@@ -60,6 +60,7 @@ public class TowerBehaviour : MonoBehaviour
                 enemyBehaviour.currentLife -= attackPower;
                 towerHead.transform.Rotate(Vector3.right * Time.deltaTime);
                 Instantiate(shotEffect, towerBarrel.position, towerBarrel.rotation);
+                audio.Play();
                 time = 0;
             }
         }
