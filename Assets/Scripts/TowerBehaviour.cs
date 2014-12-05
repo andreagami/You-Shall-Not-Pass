@@ -48,7 +48,7 @@ public class TowerBehaviour : MonoBehaviour
         if (findEnemy)
         {
             towerBase = transform.GetChild(0);
-            towerHead = towerBase.GetChild(1);
+            towerHead = towerBase.GetChild(0);
             towerCannon = towerHead.GetChild(0);
             towerBarrel = towerCannon.GetChild(0);
             direction = Quaternion.LookRotation(transform.position - enemy.transform.position);
