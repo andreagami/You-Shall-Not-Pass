@@ -9,8 +9,9 @@ public class BuyingMenu : MonoBehaviour {
     private Quaternion rotation;
     public Camera mainCamera;
     public GameObject towerOne;
-    public GameObject towerTwo;
     public GameObject towerAux;
+    private RaycastHit collision;
+    private Ray radius;
     public int text;
     public int money;
     public int score;
@@ -34,9 +35,7 @@ public class BuyingMenu : MonoBehaviour {
             if (canCreate)
             {
                 canCreate = false;
-
-                Ray radius = mainCamera.ScreenPointToRay(Input.mousePosition);
-                RaycastHit collision;
+                radius = mainCamera.ScreenPointToRay(Input.mousePosition);
                 text = 1;
                 if (Physics.Raycast(radius, out collision, Mathf.Infinity))
                 {
@@ -45,13 +44,6 @@ public class BuyingMenu : MonoBehaviour {
                         text = 2;
                         towerPosition = collision.transform;
                     }
-                    if (collision.transform.tag == "Tower 2")
-                    {
-                        text = 3;
-                        towerPosition = collision.transform;
-                    }
-
-                    //Destroy(transform);
                 }
                 menu.x = Input.mousePosition.x;
                 menu.y = -(Input.mousePosition.y - Screen.height);
@@ -76,10 +68,13 @@ public class BuyingMenu : MonoBehaviour {
 
     void OnGUI()
     {
-        GUI.color = Color.yellow;
+        GUI.color = Color.white;
         GUI.Label(new Rect(10, 10, 100, 50), "Gold: " + money);
         GUI.Label(new Rect(10, 40, 100, 50), "Score: " + score);
-
+        if (GUI.Button(new Rect(Screen.width - 120, 10, 100, 50), "Quit Game"))
+        {
+            Application.LoadLevel("GameMenu");
+        }
         if (text == 1)
         {
             GUI.Window(0, menu, Torres, "Towers");
@@ -100,7 +95,7 @@ public class BuyingMenu : MonoBehaviour {
         {
             GUI.color = Color.red;
         }
-        if (GUI.Button(buttons, "Tower 1 - 55 gold"))
+        if (GUI.Button(buttons, "Tower 1 - 50 gold"))
         {
             if (money >= 55)
             {
@@ -117,16 +112,6 @@ public class BuyingMenu : MonoBehaviour {
         else
         {
             GUI.color = Color.red;
-        }
-        if (GUI.Button(buttons, "Tower 2 - 45 gold"))
-        {
-            if (money >= 45)
-            {
-                towerAux = (GameObject)Instantiate(towerTwo, transform.position, rotation);
-                canCreate = true;
-                text = 0;
-            }
-
         }
     }
     

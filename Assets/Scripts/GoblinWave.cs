@@ -52,7 +52,7 @@ public class GoblinWave : MonoBehaviour
                 }
                 else
                 {
-                    newWave = false;
+                    newWave = true;
                 }
             }
         }

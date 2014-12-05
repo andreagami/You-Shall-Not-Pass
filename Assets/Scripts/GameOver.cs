@@ -49,4 +49,12 @@ public class GameOver : MonoBehaviour {
         scoreText.text = score.ToString();
         highScoreText.text = highScore.ToString();
 	}
+
+    void OnGUI()
+    {
+        if (GUI.Button(new Rect(Screen.width - 120, 10, 100, 50), "Quit Game"))
+        {
+            Application.LoadLevel("GameMenu");
+        }
+    }
 }
