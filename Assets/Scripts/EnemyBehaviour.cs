@@ -35,9 +35,6 @@ public class EnemyBehaviour : MonoBehaviour {
     {
         if (currentLife <= 0)
         {
-            //animation.Play("death");
-            //goblinKill.enemiesAlive--;
-            //Wait();
             buyMenuAux.money += 25;
             buyMenuAux.score += 1;
             Destroy(gameObject);

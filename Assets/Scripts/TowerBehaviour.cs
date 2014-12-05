@@ -12,8 +12,11 @@ public class TowerBehaviour : MonoBehaviour
     GameObject[] enemies;
     GameObject targetedEnemies;
     GameObject enemy;
+    public GameObject shotEffect;
     Transform towerBase;
-    Transform cannon;
+    Transform towerHead;
+    Transform towerCannon;
+    Transform towerBarrel;
     Transform enemyLifeBar;
     EnemyBehaviour enemyBehaviour;
     Quaternion direction;    
@@ -45,15 +48,18 @@ public class TowerBehaviour : MonoBehaviour
         if (findEnemy)
         {
             towerBase = transform.GetChild(0);
-            cannon = towerBase.GetChild(1);
+            towerHead = towerBase.GetChild(1);
+            towerCannon = towerHead.GetChild(0);
+            towerBarrel = towerCannon.GetChild(0);
             direction = Quaternion.LookRotation(transform.position - enemy.transform.position);
-            cannon.localEulerAngles = new Vector3(towerBase.rotation.x, direction.eulerAngles.y - 180, towerBase.rotation.z);
+            towerHead.localEulerAngles = new Vector3(towerBase.rotation.x, direction.eulerAngles.y - 180, towerBase.rotation.z);
 
             if (time > attackSpeed)
             {
                 enemyBehaviour = (EnemyBehaviour)enemy.GetComponent("EnemyBehaviour");
                 enemyBehaviour.currentLife -= attackPower;
-                cannon.transform.Rotate(Vector3.right * Time.deltaTime);
+                towerHead.transform.Rotate(Vector3.right * Time.deltaTime);
+                Instantiate(shotEffect, towerBarrel.position, towerBarrel.rotation);
                 time = 0;
             }
         }
