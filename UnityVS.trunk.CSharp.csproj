@@ -50,7 +50,7 @@
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Parse.Unity">
-      <HintPath>Assets\Other Assets\Parse\Parse.Unity.dll</HintPath>
+      <HintPath>Assets\External Assets\Parse\Parse.Unity.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

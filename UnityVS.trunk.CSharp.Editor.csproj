@@ -53,7 +53,7 @@
       <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
     </Reference>
     <Reference Include="Parse.Unity">
-      <HintPath>Assets\Other Assets\Parse\Parse.Unity.dll</HintPath>
+      <HintPath>Assets\External Assets\Parse\Parse.Unity.dll</HintPath>
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Assets\UnityVS\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>

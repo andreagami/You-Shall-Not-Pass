@@ -71,7 +71,7 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
      <None Include="Assets\External Assets\WatchTower\ReadMe.txt" />
  <Reference Include="Parse.Unity">
- <HintPath>I:/Projeto/You-Shall-Not-Pass-/trunk/Assets/Other Assets/Parse/Parse.Unity.dll</HintPath>
+ <HintPath>I:/Projeto/You-Shall-Not-Pass-/trunk/Assets/External Assets/Parse/Parse.Unity.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
